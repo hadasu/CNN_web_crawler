@@ -43,7 +43,7 @@ class WebCrawler:
             try:
                 self.crawl(curr_url)
             except Exception:
-                self.logger.exception(f'Exception crawl: {curr_url},  Depth: {curr_url[1]}')
+                self.logger.exception(f'Exception crawl: {curr_url[0]},  Depth: {curr_url[1]}')
             finally:
                 self.visited_urls.append(curr_url[0])
 
