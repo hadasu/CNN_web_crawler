@@ -27,7 +27,7 @@ class WebCrawler:
 
     def add_url_to_visit(self, url):
         if url[1] <= self.stop_depth:
-            if url[0] not in self.visited_urls and url[0] not in self.urls_to_visit:
+            if url[0] not in self.visited_urls and url not in self.urls_to_visit:
                 self.urls_to_visit.append(url)
 
     def crawl(self, url):
