@@ -10,5 +10,5 @@ logging.basicConfig(
 if __name__ == '__main__':
     content_handler = CNNContentHandler()
     WebCrawler(content_handler,
-               urls=['https://edition.cnn.com/article/sitemap-2021.html'],
-               stop_depth=2).run()
+               urls=['https://edition.cnn.com/sitemap.html'],
+               stop_depth=3).run()
