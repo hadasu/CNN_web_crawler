@@ -38,9 +38,10 @@ class CNNContentHandler:
             self.CNN_article['keywords'] = soup.find(itemprop="keywords").attrs['content']
             self.CNN_article['alternative_headline'] = soup.find(itemprop="alternativeHeadline").attrs['content']
             self.CNN_article['text'] = soup.find(id="body-text").text
-        except Exception:
+
+        except Exception as err:
             is_article = False
-            self.logger.info(f'Missing Article data')
+            self.logger.info(f'Missing Article dataError: {err}')
 
         return is_article
 

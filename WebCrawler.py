@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 class WebCrawler:
 
-    def __init__(self, content_handler, urls=[], stop_depth=sys.maxsize):
+    def __init__(self, content_handler, urls=None, stop_depth=sys.maxsize):
         self.logger = logging.getLogger(__name__)
         self.content_handler = content_handler
         self.stop_depth = stop_depth
@@ -49,8 +49,8 @@ class WebCrawler:
             self.logger.info(f'Crawling: {curr_url[0]}, Depth: {curr_url[1]}')
             try:
                 self.crawl(curr_url)
-            except Exception:
-                self.logger.exception(f'Exception crawl: {curr_url[0]},  Depth: {curr_url[1]}')
+            except Exception as err:
+                self.logger.exception(f'Exception crawl: {curr_url[0]},  Depth: {curr_url[1]}, Error: {err}')
             finally:
                 self.visited_urls.append(curr_url[0])
 
