@@ -54,7 +54,7 @@ class CNNContentHandler:
         return is_article
 
     def add_article(self):
-        self.dataset = self.dataset.concat(self.CNN_article, ignore_index=True)
+        self.dataset = pd.concat([self.dataset, pd.DataFrame([self.CNN_article])], ignore_index=True)
 
     def save_content(self, filename):
         self.dataset.to_csv(filename)
